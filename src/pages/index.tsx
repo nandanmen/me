@@ -1,33 +1,41 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
+import styles from '../css/Home.module.scss'
 
 type PageData = {
   about: {
-    edges: Array<{
-      node: {
-        html: string
-      }
-    }>
+    html: string
+  }
+  description: {
+    html: string
   }
 }
 
-export default function Home({ data }: PageProps<PageData>) {
-  const { html } = data.about.edges[0].node
+export default function Home({
+  data: { about, description },
+}: PageProps<PageData>) {
   return (
-    <main>
-      <header dangerouslySetInnerHTML={{ __html: html }} />
+    <main className="bg-white p-8 pt-24">
+      <div className="w-16 h-16 bg-gray-500 mb-12 rounded-full" />
+      <header
+        className={styles.header}
+        dangerouslySetInnerHTML={{ __html: about.html }}
+      />
+      <div
+        className={styles.description}
+        dangerouslySetInnerHTML={{ __html: description.html }}
+      />
     </main>
   )
 }
 
 export const pageQuery = graphql`
   query HomeQuery {
-    about: allMarkdownRemark {
-      edges {
-        node {
-          html
-        }
-      }
+    about: markdownRemark(fileAbsolutePath: { regex: "/about/i" }) {
+      html
+    }
+    description: markdownRemark(fileAbsolutePath: { regex: "/description/i" }) {
+      html
     }
   }
 `

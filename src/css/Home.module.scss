@@ -1,0 +1,14 @@
+.header {
+  @apply text-xl font-semibold mb-4;
+  line-height: 1.2;
+}
+
+.description {
+  > * {
+    @apply mb-2;
+  }
+
+  a {
+    @apply font-semibold;
+  }
+}
