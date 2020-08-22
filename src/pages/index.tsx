@@ -1,20 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
-import { graphql, PageProps } from 'gatsby'
+
 import styles from '../css/Home.module.scss'
+import useMeta from '../hooks/useMeta'
 
-type PageData = {
-  about: {
-    html: string
-  }
-  description: {
-    html: string
-  }
-}
-
-export default function Home({
-  data: { about, description },
-}: PageProps<PageData>) {
+export default function Home() {
+  const { about, description } = useMeta()
   return (
     <main className="bg-white p-8 pt-12">
       <img
@@ -35,14 +26,3 @@ export default function Home({
     </main>
   )
 }
-
-export const pageQuery = graphql`
-  query HomeQuery {
-    about: markdownRemark(fileAbsolutePath: { regex: "/about/i" }) {
-      html
-    }
-    description: markdownRemark(fileAbsolutePath: { regex: "/description/i" }) {
-      html
-    }
-  }
-`
