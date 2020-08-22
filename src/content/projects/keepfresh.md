@@ -1,6 +1,6 @@
 ---
 path: /projects/music
-title: Music
+title: Keep Fresh
 tech: [React, Node.js, Express, PostgreSQL]
 github: https://github.com/narendrasss/music
 color: d3adf7
