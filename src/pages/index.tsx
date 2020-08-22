@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { graphql, PageProps } from 'gatsby'
 import styles from '../css/Home.module.scss'
 
@@ -15,10 +16,16 @@ export default function Home({
   data: { about, description },
 }: PageProps<PageData>) {
   return (
-    <main className="bg-white p-8 pt-24">
-      <div className="w-16 h-16 bg-gray-500 mb-12 rounded-full" />
+    <main className="bg-white p-8 pt-12">
+      <img
+        className={clsx(
+          'w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2',
+          styles.image
+        )}
+        src="./avatar.jpg"
+      />
       <header
-        className={styles.header}
+        className="text-xl font-semibold mb-4"
         dangerouslySetInnerHTML={{ __html: about.html }}
       />
       <div
