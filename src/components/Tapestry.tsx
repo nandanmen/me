@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Tapestry() {
+  const center = { x: 50, y: 50 }
   const nodes = [
     { x: 80, y: 70 },
     { x: 20, y: 20 },
@@ -15,12 +16,12 @@ export default function Tapestry() {
           strokeWidth="2"
           stroke="currentColor"
           x1={x}
-          x2="50"
+          x2={center.x}
           y1={y}
-          y2="50"
+          y2={center.y}
         ></line>
       ))}
-      <circle r="20" cx="50" cy="50"></circle>
+      <circle r="20" cx={center.x} cy={center.y}></circle>
       {nodes.map(node => (
         <circle
           key={`${node.x}-${node.y}`}

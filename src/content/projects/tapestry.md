@@ -1,6 +1,6 @@
 ---
 title: Tapestry
-tech: [React, Redux, Styled Components]
+tech: [Vue, PHP, Wordpress]
 github: https://github.com/narendrasss/coin-v2
 link: https://narendras-coin.netlify.com
 color: b5f5ec

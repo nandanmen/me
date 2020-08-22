@@ -1,7 +1,7 @@
 ---
 path: /projects/russ
 title: eVital
-tech: [React Native, Typescript]
+tech: [React Native, Apple HealthKit]
 github: https://github.com/narendrasss/russ-vocab
 color: 1890ff
 cover: ./russ.png
