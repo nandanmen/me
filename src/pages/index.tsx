@@ -69,8 +69,9 @@ function ProjectCard({ frontmatter }: Project) {
         <h1 className="text-lg font-semibold">{frontmatter.title}</h1>
         <p className="text-xs text-gray-600">
           {frontmatter.tech.map((name, index) => (
-            <span className="mr-1" key={name}>
-              {name} {index === frontmatter.tech.length - 1 ? '' : ' /'}
+            <span key={name}>
+              {name}
+              {index === frontmatter.tech.length - 1 ? '' : ' / '}
             </span>
           ))}
         </p>
