@@ -12,22 +12,39 @@ export default function Home() {
   const { about, description } = useMeta()
   const projects = useProjects()
   return (
-    <main className="bg-white px-8 py-12">
-      <img
-        className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
-        src="./avatar.jpg"
-      />
-      <header
-        className="text-xl font-semibold mb-4"
-        dangerouslySetInnerHTML={{ __html: about.html }}
-      />
-      <div
-        className={clsx('mb-8', styles.description)}
-        dangerouslySetInnerHTML={{ __html: description.html }}
-      />
-      <ul>
+    <main
+      className={clsx(
+        'bg-white px-8 py-12 my-0 mx-auto max-w-screen-sm lg:flex lg:max-w-screen-xl',
+        styles.main
+      )}
+    >
+      <aside className={clsx('lg:mr-16', styles.about)}>
+        <img
+          className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
+          src="./avatar.jpg"
+        />
+        <section className="mb-8 lg:col-start-1 lg:col-span-2">
+          <div
+            className="text-xl font-semibold mb-4"
+            dangerouslySetInnerHTML={{ __html: about.html }}
+          />
+          <div
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: description.html }}
+          />
+        </section>
+      </aside>
+      <ul
+        className={clsx(
+          'lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4',
+          styles.project_list
+        )}
+      >
         {projects.map(project => (
-          <li key={project.id}>
+          <li
+            key={project.id}
+            className={clsx('mb-4', styles.project_list_item)}
+          >
             <ProjectCard {...project} />
           </li>
         ))}
@@ -44,7 +61,7 @@ function ProjectCard({ frontmatter }: Project) {
   return (
     <section
       className={clsx(
-        'p-6 rounded-md bg-gray-200 mb-4 hover:bg-blue-200 flex flex-col-reverse items-start relative',
+        'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative',
         styles.project
       )}
     >
