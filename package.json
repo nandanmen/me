@@ -14,8 +14,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "clsx": "^1.1.1",
     "gatsby": "^2.24.47",
     "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-remark": "^2.8.28",
     "node-sass": "^4.14.1",
@@ -33,7 +38,8 @@
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^1.7.2",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "typescript-plugin-css-modules": "^2.4.0"
   },
   "repository": {
     "type": "git",

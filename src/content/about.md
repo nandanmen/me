@@ -1,1 +1,1 @@
-Hey, I'm Nanda! I'm a senior developer @ [Tapestry](https://tapestry-tool.com/) and 5th year Business & CS @ [UBC](https://www.ubc.ca/).
+Hey, I'm Nanda! I'm a full-stack developer, currently building educational tools and improving workflows @ [Tapestry](https://tapestry-tool.com/).
