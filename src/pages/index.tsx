@@ -61,7 +61,7 @@ function ProjectCard({ frontmatter }: Project) {
   return (
     <section
       className={clsx(
-        'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative',
+        'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white',
         styles.project
       )}
     >
