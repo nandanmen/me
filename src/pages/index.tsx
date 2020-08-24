@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import Layout from '../components/Layout'
 import Tapestry from '../components/Tapestry'
 import styles from '../css/Home.module.scss'
 import useMeta from '../hooks/useMeta'
@@ -12,12 +13,7 @@ export default function Home() {
   const { about, description } = useMeta()
   const projects = useProjects()
   return (
-    <main
-      className={clsx(
-        'bg-white px-8 py-12 my-0 mx-auto max-w-screen-sm lg:flex lg:max-w-screen-xl',
-        styles.main
-      )}
-    >
+    <Layout>
       <aside className={clsx('lg:mr-16', styles.about)}>
         <img
           className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
@@ -49,7 +45,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
-    </main>
+    </Layout>
   )
 }
 

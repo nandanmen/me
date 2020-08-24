@@ -1,5 +1,7 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
+
+import Layout from '../components/Layout'
 import { Project } from '../hooks/useProjects'
 
 type ProjectPageData = {
@@ -10,7 +12,11 @@ export default function ProjectPageTemplate({
   data,
 }: PageProps<ProjectPageData>) {
   const project = data.markdownRemark
-  return <h1>{project.frontmatter.title}</h1>
+  return (
+    <Layout>
+      <h1>{project.frontmatter.title}</h1>
+    </Layout>
+  )
 }
 
 export const query = graphql`

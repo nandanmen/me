@@ -1,0 +1,7 @@
+$lg-breakpoint: 1024px;
+
+.main {
+  @media (min-width: $lg-breakpoint) {
+    height: 100vh;
+  }
+}
