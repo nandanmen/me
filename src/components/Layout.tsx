@@ -3,7 +3,11 @@ import clsx from 'clsx'
 
 import styles from '../css/Layout.module.scss'
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+type ChildrenProps = {
+  children: React.ReactNode
+}
+
+export default function Layout({ children }: ChildrenProps) {
   return (
     <main
       className={clsx(
@@ -14,4 +18,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {children}
     </main>
   )
+}
+
+Layout.Sidebar = function Sidebar({
+  children,
+  className = '',
+}: ChildrenProps & { className?: string }) {
+  return (
+    <aside className={clsx('lg:mr-16', styles.about, className)}>
+      {children}
+    </aside>
+  )
+}
+
+Layout.Main = function Main({ children }: ChildrenProps) {
+  return <section className={styles.content}>{children}</section>
 }

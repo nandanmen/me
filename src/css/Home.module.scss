@@ -1,10 +1,6 @@
 $lg-breakpoint: 1024px;
 
 .about {
-  @media (min-width: $lg-breakpoint) {
-    flex: 1;
-  }
-
   a {
     @apply text-teal-600 font-semibold;
 
@@ -49,11 +45,5 @@ $lg-breakpoint: 1024px;
   @media (min-width: $lg-breakpoint) {
     flex: 1;
     margin-bottom: 0;
-  }
-}
-
-.project_list {
-  @media (min-width: $lg-breakpoint) {
-    flex: 2;
   }
 }

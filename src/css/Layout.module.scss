@@ -5,3 +5,15 @@ $lg-breakpoint: 1024px;
     height: 100vh;
   }
 }
+
+.about {
+  @media (min-width: $lg-breakpoint) {
+    flex: 1;
+  }
+}
+
+.content {
+  @media (min-width: $lg-breakpoint) {
+    flex: 2;
+  }
+}

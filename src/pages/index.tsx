@@ -15,7 +15,7 @@ export default function Home() {
   const projects = useProjects()
   return (
     <Layout>
-      <aside className={clsx('lg:mr-16', styles.about)}>
+      <Layout.Sidebar className={styles.about}>
         <img
           className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
           src="./avatar.jpg"
@@ -30,22 +30,19 @@ export default function Home() {
             dangerouslySetInnerHTML={{ __html: description.html }}
           />
         </section>
-      </aside>
-      <ul
-        className={clsx(
-          'lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4',
-          styles.project_list
-        )}
-      >
-        {projects.map(project => (
-          <li
-            key={project.id}
-            className={clsx('mb-4', styles.project_list_item)}
-          >
-            <ProjectCard {...project} />
-          </li>
-        ))}
-      </ul>
+      </Layout.Sidebar>
+      <Layout.Main>
+        <ul className="lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4">
+          {projects.map(project => (
+            <li
+              key={project.id}
+              className={clsx('mb-4', styles.project_list_item)}
+            >
+              <ProjectCard {...project} />
+            </li>
+          ))}
+        </ul>
+      </Layout.Main>
     </Layout>
   )
 }
