@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -55,7 +56,8 @@ function ProjectCard({ frontmatter }: Project) {
   }
   const Component = components[frontmatter.title]
   return (
-    <section
+    <Link
+      to={frontmatter.path}
       className={clsx(
         'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white',
         styles.project
@@ -81,6 +83,6 @@ function ProjectCard({ frontmatter }: Project) {
       >
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
-    </section>
+    </Link>
   )
 }

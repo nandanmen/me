@@ -4,6 +4,7 @@ export type Project = {
   id: string
   html: string
   frontmatter: {
+    path: string
     github: string
     link: string | null
     tech: string[]
@@ -19,6 +20,7 @@ export default function useProjects(): Project[] {
           node {
             html
             frontmatter {
+              path
               github
               link
               tech
