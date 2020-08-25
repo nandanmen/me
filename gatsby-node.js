@@ -14,6 +14,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 path
               }
             }
+            next {
+              frontmatter {
+                path
+              }
+            }
+            previous {
+              frontmatter {
+                path
+              }
+            }
           }
         }
       }
@@ -25,13 +35,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
   const projectPostTemplate = path.resolve(`src/templates/Project.tsx`)
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
     const path = node.frontmatter.path
     createPage({
       path,
       component: projectPostTemplate,
       context: {
         pagePath: path,
+        next,
+        previous,
       },
     })
   })

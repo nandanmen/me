@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import styles from '../css/Layout.module.scss'
+import styles from './css/Layout.module.scss'
 
 type ChildrenProps = {
   children: React.ReactNode

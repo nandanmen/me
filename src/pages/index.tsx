@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import LinkButton from '../components/LinkButton'
 import Layout from '../components/Layout'
 import Tapestry from '../components/Tapestry'
 import styles from '../css/Home.module.scss'
@@ -72,14 +73,12 @@ function ProjectCard({ frontmatter }: Project) {
         </p>
       </header>
       {Component && <Component />}
-      <button
-        className={clsx(
-          'w-10 h-10 bg-gray-100 absolute rounded-full text-gray-600',
-          styles.project_button
-        )}
+      <LinkButton
+        to={frontmatter.path}
+        className={clsx('absolute', styles.project_button)}
       >
         <FontAwesomeIcon icon={faArrowRight} />
-      </button>
+      </LinkButton>
     </Link>
   )
 }
