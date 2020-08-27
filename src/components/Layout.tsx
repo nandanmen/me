@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
+import Avatar from './Avatar'
 import styles from './css/Layout.module.scss'
 
 type ChildrenProps = {
@@ -15,13 +16,12 @@ export default function Layout({ children }: ChildrenProps) {
         styles.main
       )}
     >
+      <header className="lg:col-start-1 col-span-2">
+        <Avatar />
+      </header>
       {children}
     </main>
   )
-}
-
-Layout.Header = function Header({ children }: ChildrenProps) {
-  return <header className="lg:col-start-1 col-span-2">{children}</header>
 }
 
 Layout.Sidebar = function Sidebar({

@@ -81,14 +81,14 @@ export default function ProjectPageTemplate({
           </ul>
         </section>
       </Layout.Sidebar>
-      <Layout.Main>
+      <Layout.Content>
         <section className="max-w-2xl mx-auto">
           <h1 className="font-semibold text-5xl">
             {project.frontmatter.title}
           </h1>
           <article dangerouslySetInnerHTML={{ __html: project.html }} />
         </section>
-      </Layout.Main>
+      </Layout.Content>
     </Layout>
   )
 }

@@ -16,12 +16,6 @@ export default function Home() {
   const projects = useProjects()
   return (
     <Layout>
-      <Layout.Header>
-        <img
-          className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover lg:mb-0"
-          src="./avatar.jpg"
-        />
-      </Layout.Header>
       <Layout.Sidebar className={styles.about}>
         <section className="mb-8 lg:col-start-1 lg:col-span-2">
           <div
