@@ -11,13 +11,17 @@ export default function Layout({ children }: ChildrenProps) {
   return (
     <main
       className={clsx(
-        'bg-white px-8 py-12 my-0 mx-auto max-w-screen-sm lg:flex lg:max-w-screen-xl',
+        'bg-white p-8 my-0 mx-auto max-w-screen-sm lg:max-w-screen-xl lg:grid lg:gap-8',
         styles.main
       )}
     >
       {children}
     </main>
   )
+}
+
+Layout.Header = function Header({ children }: ChildrenProps) {
+  return <header className="lg:col-start-1 col-span-2">{children}</header>
 }
 
 Layout.Sidebar = function Sidebar({
@@ -31,6 +35,6 @@ Layout.Sidebar = function Sidebar({
   )
 }
 
-Layout.Main = function Main({ children }: ChildrenProps) {
+Layout.Content = function Content({ children }: ChildrenProps) {
   return <section className={styles.content}>{children}</section>
 }

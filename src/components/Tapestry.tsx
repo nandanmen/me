@@ -9,7 +9,7 @@ export default function Tapestry() {
   ]
 
   return (
-    <svg className="fill-current text-teal-400 w-full" viewBox="0 0 100 100">
+    <svg className="fill-current text-teal-400" viewBox="0 0 100 100">
       {nodes.map(({ x, y }) => (
         <line
           key={`link-${x}-${y}`}

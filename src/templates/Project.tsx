@@ -40,7 +40,7 @@ export default function ProjectPageTemplate({
   return (
     <Layout>
       <Layout.Sidebar>
-        <section className="p-6 rounded-md bg-gray-200 h-full relative">
+        <section className="h-full relative">
           <nav className="flex justify-between mb-8">
             <LinkButton to="/">
               <FontAwesomeIcon icon={faHome} />

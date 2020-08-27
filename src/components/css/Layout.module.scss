@@ -3,6 +3,8 @@ $lg-breakpoint: 1024px;
 .main {
   @media (min-width: $lg-breakpoint) {
     height: 100vh;
+    grid-template-rows: 4rem 1fr;
+    grid-template-columns: 1fr 2fr;
   }
 }
 

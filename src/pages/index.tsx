@@ -16,11 +16,13 @@ export default function Home() {
   const projects = useProjects()
   return (
     <Layout>
-      <Layout.Sidebar className={styles.about}>
+      <Layout.Header>
         <img
-          className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
+          className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover lg:mb-0"
           src="./avatar.jpg"
         />
+      </Layout.Header>
+      <Layout.Sidebar className={styles.about}>
         <section className="mb-8 lg:col-start-1 lg:col-span-2">
           <div
             className="text-xl font-semibold mb-4"
@@ -32,8 +34,8 @@ export default function Home() {
           />
         </section>
       </Layout.Sidebar>
-      <Layout.Main>
-        <ul className="lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4">
+      <Layout.Content>
+        <ul className="lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:h-full">
           {projects.map(project => (
             <li
               key={project.id}
@@ -43,7 +45,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-      </Layout.Main>
+      </Layout.Content>
     </Layout>
   )
 }
