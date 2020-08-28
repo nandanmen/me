@@ -1,21 +1,17 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import clsx from 'clsx'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import LinkButton from '../components/LinkButton'
 import Layout from '../components/Layout'
-import Tapestry from '../components/Tapestry'
+import ProjectCard from '../components/ProjectCard'
 import styles from '../css/Home.module.scss'
 import useMeta from '../hooks/useMeta'
-import useProjects, { Project } from '../hooks/useProjects'
+import useProjects from '../hooks/useProjects'
 
 export default function Home() {
   const { about, description } = useMeta()
   const projects = useProjects()
   return (
-    <Layout>
+    <>
       <Layout.Sidebar className={styles.about}>
         <section className="mb-8 lg:col-start-1 lg:col-span-2">
           <div
@@ -35,46 +31,11 @@ export default function Home() {
               key={project.id}
               className={clsx('mb-4', styles.project_list_item)}
             >
-              <ProjectCard {...project} />
+              <ProjectCard {...project} variant={ProjectCard.variants.link} />
             </li>
           ))}
         </ul>
       </Layout.Content>
-    </Layout>
-  )
-}
-
-function ProjectCard({ frontmatter }: Project) {
-  const components: Record<string, () => JSX.Element> = {
-    Tapestry,
-  }
-  const Component = components[frontmatter.title]
-  return (
-    <Link
-      to={frontmatter.path}
-      className={clsx(
-        'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white',
-        styles.project
-      )}
-    >
-      <header>
-        <h1 className="text-lg font-semibold">{frontmatter.title}</h1>
-        <p className="text-xs text-gray-600">
-          {frontmatter.tech.map((name, index) => (
-            <span key={name}>
-              {name}
-              {index === frontmatter.tech.length - 1 ? '' : ' / '}
-            </span>
-          ))}
-        </p>
-      </header>
-      {Component && <Component />}
-      <LinkButton
-        to={frontmatter.path}
-        className={clsx('absolute', styles.project_button)}
-      >
-        <FontAwesomeIcon icon={faArrowRight} />
-      </LinkButton>
-    </Link>
+    </>
   )
 }

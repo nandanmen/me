@@ -1,0 +1,35 @@
+$lg-breakpoint: 1024px;
+
+.project {
+  height: 20rem;
+  transition: all 0.1s ease-out;
+
+  > svg {
+    @apply m-auto;
+  }
+
+  @media (min-width: $lg-breakpoint) {
+    height: auto;
+    width: 100%;
+
+    > svg {
+      @apply w-9/12;
+    }
+  }
+}
+
+.link {
+  &:hover {
+    @apply bg-blue-600 text-white;
+
+    p,
+    > svg {
+      @apply text-white;
+    }
+  }
+}
+
+.button {
+  top: 0.75rem;
+  right: 0.75rem;
+}

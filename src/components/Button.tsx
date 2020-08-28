@@ -1,23 +1,20 @@
 import React, { ReactNode } from 'react'
 import clsx from 'clsx'
-import { Link } from 'gatsby'
 
-type LinkButtonProps = {
-  to: string
+type ButtonProps = {
   children: ReactNode
   className?: string
   disabled?: boolean
 }
 
-export default function LinkButton({
+export default function Button({
   children,
-  to,
   className = '',
   disabled = false,
-}: LinkButtonProps) {
+}: ButtonProps) {
   return (
-    <Link
-      to={to}
+    <button
+      disabled={disabled}
       className={clsx(
         'w-10 h-10 bg-gray-100 rounded-full text-gray-600 flex items-center justify-center text-xl',
         disabled ? 'opacity-50 pointer-events-none cursor-not-allowed' : '',
@@ -25,6 +22,6 @@ export default function LinkButton({
       )}
     >
       {children}
-    </Link>
+    </button>
   )
 }

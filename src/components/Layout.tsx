@@ -28,11 +28,7 @@ Layout.Sidebar = function Sidebar({
   children,
   className = '',
 }: ChildrenProps & { className?: string }) {
-  return (
-    <aside className={clsx('lg:mr-16', styles.about, className)}>
-      {children}
-    </aside>
-  )
+  return <aside className={clsx(styles.about, className)}>{children}</aside>
 }
 
 Layout.Content = function Content({ children }: ChildrenProps) {
