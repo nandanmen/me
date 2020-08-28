@@ -2,8 +2,9 @@
 path: /projects/tapestry
 title: Tapestry
 tech: [Vue, PHP, Wordpress]
-github: https://github.com/narendrasss/coin-v2
-link: https://narendras-coin.netlify.com
+github: https://github.com/wynnset/tapestry-wp
+link: https://tapestry-tool.com
+timeline: Sep 2019 - Present
 ---
 
 A web app for visualizing and managing money. Allows you to easily add expenses, create budgets and manage bank accounts. View historical transactional data and your monthly budget progress.

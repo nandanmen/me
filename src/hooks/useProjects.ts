@@ -9,6 +9,7 @@ export type Project = {
     link: string | null
     tech: string[]
     title: string
+    timeline: string
   }
 }
 

@@ -1,12 +1,5 @@
 import React from 'react'
-import { Link, graphql, PageProps } from 'gatsby'
-import clsx from 'clsx'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faHome,
-  faArrowLeft,
-  faArrowRight,
-} from '@fortawesome/free-solid-svg-icons'
+import { graphql, PageProps } from 'gatsby'
 
 import ProjectCard from '../components/ProjectCard'
 import Layout from '../components/Layout'
@@ -32,14 +25,27 @@ type PageContext = {
 
 export default function ProjectPageTemplate({
   data,
-  pageContext,
 }: PageProps<ProjectPageData>) {
   const project = data.markdownRemark
-  const { next, previous, pagePath } = pageContext as PageContext
   return (
     <>
       <Layout.Sidebar>
         <ProjectCard {...project} />
+        <section className="p-6">
+          <ul>
+            <MetaItem name="Timeline" value={project.frontmatter.timeline} />
+            <MetaItem
+              name="Website"
+              value={project.frontmatter.link}
+              variant="link"
+            />
+            <MetaItem
+              name="GitHub"
+              value={project.frontmatter.github}
+              variant="link"
+            />
+          </ul>
+        </section>
       </Layout.Sidebar>
       <Layout.Content>
         <section className="max-w-2xl">
@@ -53,6 +59,34 @@ export default function ProjectPageTemplate({
   )
 }
 
+function MetaItem({
+  name,
+  value,
+  variant,
+}: {
+  name: string
+  value: string
+  variant?: 'link'
+}) {
+  return (
+    <li>
+      <h3 className="font-semibold">{name}</h3>
+      {variant === 'link' ? (
+        <a
+          className="text-xs text-gray-600 block"
+          href={value}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {value}
+        </a>
+      ) : (
+        <p className="text-xs text-gray-600">{value}</p>
+      )}
+    </li>
+  )
+}
+
 export const query = graphql`
   query($pagePath: String!) {
     markdownRemark(frontmatter: { path: { eq: $pagePath } }) {
@@ -62,6 +96,7 @@ export const query = graphql`
         tech
         github
         link
+        timeline
       }
     }
   }
