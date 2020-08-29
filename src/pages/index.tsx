@@ -1,7 +1,13 @@
 import React from 'react'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+  faExternalLinkAlt,
+  faPaperPlane,
+  faFileAlt,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons'
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import Tapestry from '../components/Tapestry'
 import styles from '../css/Home.module.scss'
@@ -32,6 +38,15 @@ export default function Home() {
             className={styles.description}
             dangerouslySetInnerHTML={{ __html: description.html }}
           />
+          <ul className="flex mt-4">
+            <SocialMedia link="/resume.pdf" icon={faFileAlt} />
+            <SocialMedia link="mailto:nanda.s@hey.com" icon={faPaperPlane} />
+            <SocialMedia link="github.com/narendrasss" icon={faGithub} />
+            <SocialMedia
+              link="linkedin.com/in/narendrass/"
+              icon={faLinkedinIn}
+            />
+          </ul>
         </section>
       </aside>
       <ul
@@ -89,5 +104,20 @@ function ProjectCard({ frontmatter }: Project) {
         <FontAwesomeIcon icon={faExternalLinkAlt} />
       </button>
     </a>
+  )
+}
+
+function SocialMedia({ link, icon }: { link: string; icon: IconDefinition }) {
+  return (
+    <li className="text-lg mr-4">
+      <a
+        className="hover:text-blue-600"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={icon} />
+      </a>
+    </li>
   )
 }
