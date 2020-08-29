@@ -111,7 +111,7 @@ function SocialMedia({ link, icon }: { link: string; icon: IconDefinition }) {
   return (
     <li className="text-lg mr-4">
       <a
-        className="hover:text-blue-600"
+        className={clsx('hover:text-blue-600', styles.social_link)}
         href={link}
         target="_blank"
         rel="noreferrer"
