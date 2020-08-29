@@ -7,6 +7,14 @@ $lg-breakpoint: 1024px;
 }
 
 .about {
+  a {
+    @apply font-semibold text-teal-600;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
   @media (min-width: $lg-breakpoint) {
     flex: 1;
   }
@@ -15,10 +23,6 @@ $lg-breakpoint: 1024px;
 .description {
   > * {
     @apply mb-2;
-  }
-
-  a {
-    @apply font-semibold;
   }
 }
 

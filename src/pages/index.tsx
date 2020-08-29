@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Tapestry from '../components/Tapestry'
 import styles from '../css/Home.module.scss'
@@ -59,11 +59,14 @@ function ProjectCard({ frontmatter }: Project) {
   }
   const Component = components[frontmatter.title]
   return (
-    <section
+    <a
       className={clsx(
         'p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white',
         styles.project
       )}
+      href={frontmatter.link || frontmatter.github}
+      target="_blank"
+      rel="noreferrer"
     >
       <header>
         <h1 className="text-lg font-semibold">{frontmatter.title}</h1>
@@ -83,8 +86,8 @@ function ProjectCard({ frontmatter }: Project) {
           styles.project_button
         )}
       >
-        <FontAwesomeIcon icon={faArrowRight} />
+        <FontAwesomeIcon icon={faExternalLinkAlt} />
       </button>
-    </section>
+    </a>
   )
 }
