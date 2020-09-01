@@ -11,6 +11,7 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import Tapestry from '../components/Tapestry'
 import styles from '../css/Home.module.scss'
