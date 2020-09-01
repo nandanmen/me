@@ -1,6 +1,6 @@
 ---
 path: /projects/keep-fresh
-title: Keep Fresh
+title: KeepFresh
 tech: [TypeScript, Node.js, Express, PostgreSQL]
 github: https://github.com/ubclaunchpad/food-doods
 ---

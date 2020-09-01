@@ -5,6 +5,9 @@ import {
   faExternalLinkAlt,
   faPaperPlane,
   faFileAlt,
+  faHeartbeat,
+  faHandHoldingUsd,
+  faSeedling,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -69,10 +72,11 @@ export default function Home() {
 }
 
 function ProjectCard({ frontmatter }: Project) {
-  const components: Record<string, () => JSX.Element> = {
-    Tapestry,
+  const components: Record<string, IconDefinition> = {
+    eVital: faHeartbeat,
+    Coin: faHandHoldingUsd,
+    KeepFresh: faSeedling,
   }
-  const Component = components[frontmatter.title]
   return (
     <a
       className={clsx(
@@ -94,7 +98,13 @@ function ProjectCard({ frontmatter }: Project) {
           ))}
         </p>
       </header>
-      {Component && <Component />}
+      {frontmatter.title === 'Tapestry' ? (
+        <Tapestry />
+      ) : (
+        <div className="text-teal-400 h-full flex items-center justify-center">
+          <FontAwesomeIcon icon={components[frontmatter.title]} size="8x" />
+        </div>
+      )}
       <button
         className={clsx(
           'w-10 h-10 bg-gray-100 absolute rounded-full text-gray-600',
