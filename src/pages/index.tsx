@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -6,7 +7,7 @@ import {
   faPaperPlane,
   faFileAlt,
   faHeartbeat,
-  faHandHoldingUsd,
+  faVectorSquare,
   faSeedling,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
@@ -28,6 +29,10 @@ export default function Home() {
         styles.main
       )}
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Nanda Syahrasyad</title>
+      </Helmet>
       <aside className={clsx('lg:mr-16', styles.about)}>
         <img
           className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
@@ -75,7 +80,7 @@ export default function Home() {
 function ProjectCard({ frontmatter }: Project) {
   const components: Record<string, IconDefinition> = {
     eVital: faHeartbeat,
-    Coin: faHandHoldingUsd,
+    Visualizer: faVectorSquare,
     KeepFresh: faSeedling,
   }
   return (
@@ -109,10 +114,13 @@ function ProjectCard({ frontmatter }: Project) {
       <button
         className={clsx(
           'w-10 h-10 bg-gray-100 absolute rounded-full text-gray-600',
-          styles.project_button
+          styles.project_button,
+          { 'text-2xl': !frontmatter.link }
         )}
       >
-        <FontAwesomeIcon icon={faExternalLinkAlt} />
+        <FontAwesomeIcon
+          icon={frontmatter.link ? faExternalLinkAlt : faGithub}
+        />
       </button>
     </a>
   )
