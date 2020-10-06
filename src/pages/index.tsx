@@ -129,12 +129,11 @@ function ProjectCard({ frontmatter }: Project) {
   )
 }
 
-const LINK_PROTOCOL = 'https://'
+const PREFIXES = ['https://', 'mailto:']
 
 function SocialMedia({ link, icon }: { link: string; icon: IconDefinition }) {
-  const displayLink = link.startsWith(LINK_PROTOCOL)
-    ? link.slice(LINK_PROTOCOL.length)
-    : link
+  const prefix = PREFIXES.find(prefix => link.startsWith(prefix))
+  const displayLink = prefix ? link.slice(prefix.length) : link
   return (
     <li className="text-lg mr-4">
       <a
