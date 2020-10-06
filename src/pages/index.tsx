@@ -50,9 +50,12 @@ export default function Home() {
           <ul className="flex mt-4">
             <SocialMedia link="/resume.pdf" icon={faFileAlt} />
             <SocialMedia link="mailto:nanda.s@hey.com" icon={faPaperPlane} />
-            <SocialMedia link="github.com/narendrasss" icon={faGithub} />
             <SocialMedia
-              link="linkedin.com/in/narendrass/"
+              link="https://github.com/narendrasss"
+              icon={faGithub}
+            />
+            <SocialMedia
+              link="https://linkedin.com/in/narendrass/"
               icon={faLinkedinIn}
             />
           </ul>
@@ -126,11 +129,17 @@ function ProjectCard({ frontmatter }: Project) {
   )
 }
 
+const LINK_PROTOCOL = 'https://'
+
 function SocialMedia({ link, icon }: { link: string; icon: IconDefinition }) {
+  const displayLink = link.startsWith(LINK_PROTOCOL)
+    ? link.slice(LINK_PROTOCOL.length)
+    : link
   return (
     <li className="text-lg mr-4">
       <a
         className={clsx('hover:text-blue-600', styles.social_link)}
+        data-link={displayLink}
         href={link}
         target="_blank"
         rel="noreferrer"

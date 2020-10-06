@@ -71,7 +71,7 @@ $lg-breakpoint: 1024px;
     &:after {
       @apply text-sm;
       position: absolute;
-      content: attr(href);
+      content: attr(data-link);
       bottom: -1.5rem;
       left: 0;
       color: black;
